@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './components/app/app';
-import Setting from './constants/constants';
+import { Setting } from './constants/constants';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
