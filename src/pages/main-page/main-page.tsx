@@ -1,4 +1,4 @@
-import OfferCard from '../../components/offer-card/offer-card';
+import OffersList from '../../components/offers-list/offers-list';
 type MainPageOffers = {
   offersCount: number;
 };
@@ -115,10 +115,7 @@ function MainPage({ offersCount }: MainPageOffers): JSX.Element {
                 </ul>
               </form>
               <div className="cities__places-list places__list tabs__content">
-                <OfferCard />
-                <OfferCard />
-                <OfferCard />
-                <OfferCard />
+                <OffersList />
               </div>
             </section>
             <div className="cities__right-section">

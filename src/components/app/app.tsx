@@ -6,12 +6,16 @@ import FavoriteOffers from '../../pages/favorite-offers/favorite-offers';
 import Offer from '../../pages/offer/offer';
 import NotFoundScreen from '../not-found-screen/not-found-screen';
 import PrivateRoute from '../private-route/private-route';
+import OffersProps from '../../types/offers';
+import ReviewsProps from '../../types/reviews';
 
 type AppPageProps = {
   offersCount: number;
+  offers: OffersProps[];
+  reviews: ReviewsProps[];
 };
 
-function App({ offersCount }: AppPageProps) {
+function App({ offersCount, offers, reviews }: AppPageProps) {
   return (
     <BrowserRouter>
       <Routes>
@@ -23,12 +27,15 @@ function App({ offersCount }: AppPageProps) {
         <Route
           path={AppRoute.Favorites}
           element={
-            <PrivateRoute authorizationStatus={AuthorizationStatus.NoAuth}>
-              <FavoriteOffers />
+            <PrivateRoute authorizationStatus={AuthorizationStatus.Auth}>
+              <FavoriteOffers offers={offers} />
             </PrivateRoute>
           }
         />
-        <Route path={AppRoute.Offer} element={<Offer />} />
+        <Route
+          path={AppRoute.Offer}
+          element={<Offer offers={offers} reviews={reviews} />}
+        />
         <Route path="*" element={<NotFoundScreen />} />
       </Routes>
     </BrowserRouter>
