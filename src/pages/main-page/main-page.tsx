@@ -1,4 +1,5 @@
 import OffersList from '../../components/offers-list/offers-list';
+import offers from '../../mocks/offers';
 type MainPageOffers = {
   offersCount: number;
 };
@@ -115,7 +116,7 @@ function MainPage({ offersCount }: MainPageOffers): JSX.Element {
                 </ul>
               </form>
               <div className="cities__places-list places__list tabs__content">
-                <OffersList />
+                <OffersList offers={offers} />
               </div>
             </section>
             <div className="cities__right-section">

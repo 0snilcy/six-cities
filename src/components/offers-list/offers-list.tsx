@@ -1,6 +1,16 @@
-import offers from '../../mocks/offers';
 import OfferCard from '../offer-card/offer-card';
-function OffersList() {
-  return <OfferCard offers={offers} />;
+import OffersProps from '../../types/offers';
+
+type OfferCardListProps = {
+  offers: OffersProps[];
+};
+function OffersList({ offers }: OfferCardListProps) {
+  return (
+    <>
+      {offers.map((el) => (
+        <OfferCard key={el.id} offers={el} />
+      ))}
+    </>
+  );
 }
 export default OffersList;

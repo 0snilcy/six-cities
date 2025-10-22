@@ -1,19 +1,18 @@
 import OffersProps from '../../types/offers';
-import { useNavigate } from 'react-router-dom';
 
+import { Link } from 'react-router-dom';
 export type OfferCardProps = {
-  offers: OffersProps[];
+  offers: OffersProps;
 };
 
 function OfferCard({ offers }: OfferCardProps) {
-  const navigate = useNavigate();
-  return offers.map((el) => (
-    <article key={el.id} className="cities__card place-card">
+  return (
+    <article className="cities__card place-card">
       <div className="cities__image-wrapper place-card__image-wrapper">
         <a href="#">
           <img
             className="place-card__image"
-            src={el.image}
+            src={offers.image}
             width={260}
             height={200}
             alt="Place image"
@@ -23,7 +22,7 @@ function OfferCard({ offers }: OfferCardProps) {
       <div className="place-card__info">
         <div className="place-card__price-wrapper">
           <div className="place-card__price">
-            <b className="place-card__price-value">{el.price}</b>
+            <b className="place-card__price-value">{offers.price}</b>
             <span className="place-card__price-text">/&nbsp;night</span>
           </div>
           <button
@@ -42,18 +41,12 @@ function OfferCard({ offers }: OfferCardProps) {
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
-        <h2
-          onClick={(e) => {
-            e.preventDefault();
-            navigate(`/offer/${el.id}`);
-          }}
-          className="place-card__name"
-        >
-          <a href="#">{el.name}</a>
-        </h2>
-        <p className="place-card__type">{el.type}</p>
+        <Link to={`/offer/${offers.id}`}>
+          <h2 className="place-card__name">{offers.name}</h2>
+        </Link>
+        <p className="place-card__type">{offers.type}</p>
       </div>
     </article>
-  ));
+  );
 }
 export default OfferCard;
