@@ -1,6 +1,6 @@
 import Favorites from '../../components/favorites/favorites';
-import offers from '../../mocks/offers';
-function FavoriteOffers() {
+import { OfferCardListProps } from '../../components/offers-list/offers-list';
+function FavoriteOffers({ offers }: OfferCardListProps) {
   return (
     <div className="page">
       <header className="header">
@@ -54,8 +54,10 @@ function FavoriteOffers() {
                     </a>
                   </div>
                 </div>
-                <Favorites offers={offers} />
               </li>
+              {offers.map((el) => (
+                <Favorites key={el.id} offers={el} />
+              ))}
             </ul>
           </section>
         </div>
