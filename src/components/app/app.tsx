@@ -23,6 +23,7 @@ function App({ offersCount, offers, reviews }: AppPageProps) {
           path={AppRoute.Root}
           element={<MainPage offersCount={offersCount} />}
         />
+
         <Route path={AppRoute.Login} element={<LoginForm />} />
         <Route
           path={AppRoute.Favorites}

@@ -2,6 +2,9 @@ import OffersProps from '../types/offers';
 const offers: OffersProps[] = [
   {
     id: 1,
+    city: 'Amsterdam',
+    lat: 52.3909553943508,
+    lng: 4.85309666406198,
     image:
       'https://www.magazindomov.ru/wp-content/uploads/2013/11/Beverly-Hills-House-10.jpg',
     price: '300$',
@@ -28,6 +31,9 @@ const offers: OffersProps[] = [
 
   {
     id: 2,
+    city: 'Amsterdam',
+    lat: 52.3609553943508,
+    lng: 4.85309666406198,
     image:
       'https://www.m2.by/upload/images/articles/items/471954245599e4fc0a0cbb0.26310516.jpeg',
     price: '30$',
@@ -46,6 +52,9 @@ const offers: OffersProps[] = [
   },
   {
     id: 3,
+    city: 'Amsterdam',
+    lat: 52.3909553943508,
+    lng: 4.929309666406198,
     image:
       'https://cdn.home-designing.com/wp-content/uploads/2017/03/black-frame-sliding-doors.jpg',
     price: '250$',
@@ -73,6 +82,9 @@ const offers: OffersProps[] = [
   },
   {
     id: 4,
+    city: 'Amsterdam',
+    lat: 52.3809553943508,
+    lng: 4.939309666406198,
     image:
       'https://www.krist.ru/files/mToursNomersGallery/835/1d82b699e70a1e19d72a56793c71993c_3782_.jpg',
     price: '80$',
