@@ -1,5 +1,6 @@
 import OffersList from '../../components/offers-list/offers-list';
 import offers from '../../mocks/offers';
+import Map from '../../components/map/map';
 type MainPageOffers = {
   offersCount: number;
 };
@@ -120,7 +121,9 @@ function MainPage({ offersCount }: MainPageOffers): JSX.Element {
               </div>
             </section>
             <div className="cities__right-section">
-              <section className="cities__map map" />
+              <section className="cities__map map">
+                <Map offers={offers} />
+              </section>
             </div>
           </div>
         </div>

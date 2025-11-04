@@ -1,5 +1,8 @@
 type OffersProps = {
   id: number;
+  city: string;
+  lat: number;
+  lng: number;
   image: string;
   price: string;
   stars: string;
