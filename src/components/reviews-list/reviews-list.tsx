@@ -8,8 +8,9 @@ type ReviewsListProps = {
 function ReviewsList({ reviews }: ReviewsListProps) {
   return (
     <ul className="reviews__list">
-      {reviews.map((el) => (
-        <ReviewsItem key={el.key} reviews={el} />
+      {reviews.map((el, index) => (
+        // eslint-disable-next-line react/no-array-index-key
+        <ReviewsItem key={`${index}_${el.id}`} review={el} />
       ))}
     </ul>
   );

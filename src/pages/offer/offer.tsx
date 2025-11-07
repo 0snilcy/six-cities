@@ -4,7 +4,7 @@ import CommentForm from '../../components/comment-form/comment-form';
 import ReviewsProps from '../../types/reviews';
 import ReviewsList from '../../components/reviews-list/reviews-list';
 import Map from '../../components/map/map';
-import { WrappedSuggestedList } from '../../components/offers-list/offers-list';
+import OffersList from '../../components/offers-list/offers-list';
 type OfferProps = {
   offers: OffersProps[];
   reviews: ReviewsProps[];
@@ -173,7 +173,7 @@ function Offer({ offers, reviews }: OfferProps) {
               Other places in the neighbourhood
             </h2>
             <div className="near-places__list places__list">
-              <WrappedSuggestedList offers={offers} />
+              <OffersList offers={offersMap} />
             </div>
           </section>
         </div>

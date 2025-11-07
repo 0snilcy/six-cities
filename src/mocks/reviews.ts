@@ -2,7 +2,6 @@ import ReviewsProps from '../types/reviews';
 export const reviews: ReviewsProps[] = [
   {
     id: 1,
-    key: 1.1,
     user: 'Alex',
     userRate: '100%',
     userPhoto:
@@ -12,7 +11,6 @@ export const reviews: ReviewsProps[] = [
   },
   {
     id: 1,
-    key: 1.2,
     user: 'Nick',
     userRate: '95%',
     userPhoto:
@@ -22,7 +20,6 @@ export const reviews: ReviewsProps[] = [
   },
   {
     id: 2,
-    key: 2.1,
     user: 'Jason',
     userRate: '60%',
     userPhoto:
@@ -33,7 +30,6 @@ export const reviews: ReviewsProps[] = [
 
   {
     id: 3,
-    key: 3.1,
     user: 'Ann',
     userRate: '100%',
     userPhoto:
@@ -43,7 +39,6 @@ export const reviews: ReviewsProps[] = [
   },
   {
     id: 4,
-    key: 4.1,
     user: 'Julie',
     userRate: '80%',
     userPhoto:
