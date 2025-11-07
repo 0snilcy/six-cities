@@ -2,6 +2,7 @@ import ReviewsProps from '../types/reviews';
 export const reviews: ReviewsProps[] = [
   {
     id: 1,
+    key: 1.1,
     user: 'Alex',
     userRate: '100%',
     userPhoto:
@@ -10,7 +11,18 @@ export const reviews: ReviewsProps[] = [
     date: '2025-12-01',
   },
   {
+    id: 1,
+    key: 1.2,
+    user: 'Nick',
+    userRate: '95%',
+    userPhoto:
+      'https://i.pinimg.com/474x/33/53/e8/3353e89fa1f7f773aa830563aca0f90c.jpg?nii=t',
+    info: 'The wonderful house with an amazing view',
+    date: '2025-10-01',
+  },
+  {
     id: 2,
+    key: 2.1,
     user: 'Jason',
     userRate: '60%',
     userPhoto:
@@ -21,6 +33,7 @@ export const reviews: ReviewsProps[] = [
 
   {
     id: 3,
+    key: 3.1,
     user: 'Ann',
     userRate: '100%',
     userPhoto:
@@ -30,6 +43,7 @@ export const reviews: ReviewsProps[] = [
   },
   {
     id: 4,
+    key: 4.1,
     user: 'Julie',
     userRate: '80%',
     userPhoto:

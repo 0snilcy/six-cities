@@ -1,5 +1,6 @@
 type ReviewsProps = {
   id: number;
+  key: number;
   user: string;
   userRate: string;
   userPhoto: string;
