@@ -1,6 +1,5 @@
 import OfferCard from '../offer-card/offer-card';
 import OffersProps from '../../types/offers';
-
 export type OfferCardListProps = {
   offers: OffersProps[];
 };

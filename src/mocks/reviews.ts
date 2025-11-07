@@ -10,6 +10,15 @@ export const reviews: ReviewsProps[] = [
     date: '2025-12-01',
   },
   {
+    id: 1,
+    user: 'Nick',
+    userRate: '95%',
+    userPhoto:
+      'https://i.pinimg.com/474x/33/53/e8/3353e89fa1f7f773aa830563aca0f90c.jpg?nii=t',
+    info: 'The wonderful house with an amazing view',
+    date: '2025-10-01',
+  },
+  {
     id: 2,
     user: 'Jason',
     userRate: '60%',
