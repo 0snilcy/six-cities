@@ -1,7 +1,11 @@
-export const Setting = {
-  OffersCount: 312,
-} as const;
-
+export const Cities = {
+  Paris: 'Paris',
+  Cologne: 'Cologne',
+  Brussels: 'Brussels',
+  Amsterdam: 'Amsterdam',
+  Hamburg: 'Hamburg',
+  Dusseldorf: 'Dusseldorf',
+};
 export enum AppRoute {
   Root = '/',
   Login = '/login',
