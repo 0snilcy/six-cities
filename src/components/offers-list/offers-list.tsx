@@ -3,7 +3,7 @@ import OffersProps from '../../types/offers';
 import { useAppSelector } from '../../hooks';
 
 export type OfferCardListProps = {
-  offers?: OffersProps[];
+  offers: OffersProps[];
 };
 
 function OffersList({ offers }: OfferCardListProps) {
