@@ -2,11 +2,12 @@ import OffersList from '../../components/offers-list/offers-list';
 import Map from '../../components/map/map';
 import CitiesList from '../../components/cities-list/cities-list';
 import { useAppSelector } from '../../hooks';
+import { citiesList } from '../../constants/constants';
 
 function MainPage(): JSX.Element {
-  const chosenCity = useAppSelector((state) => state.city);
-  const offersState = useAppSelector((state) => state.cityOffers);
-  const chosenOffers = offersState.filter((el) => el.city === chosenCity);
+  const filteredcity = useAppSelector((state) => state.city);
+  const allOffers = useAppSelector((state) => state.offers);
+  const filteredOffers = useAppSelector((state) => state.currentCityOffers);
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -49,13 +50,13 @@ function MainPage(): JSX.Element {
       </header>
       <main className="page__main page__main--index">
         <h1 className="visually-hidden">Cities</h1>
-        <CitiesList />
+        <CitiesList citiesList={citiesList} />
         <div className="cities">
           <div className="cities__places-container container">
             <section className="cities__places places">
               <h2 className="visually-hidden">Places</h2>
               <b className="places__found">
-                {chosenOffers.length} places to stay in {chosenCity}
+                {filteredOffers.length} places to stay in {filteredcity}
               </b>
               <form className="places__sorting" action="#" method="get">
                 <span className="places__sorting-caption">Sort by</span>
@@ -84,12 +85,12 @@ function MainPage(): JSX.Element {
                 </ul>
               </form>
               <div className="cities__places-list places__list tabs__content">
-                <OffersList offers={[]} />
+                <OffersList />
               </div>
             </section>
             <div className="cities__right-section">
               <section className="cities__map map">
-                <Map offers={chosenOffers} />
+                <Map offers={allOffers} />
               </section>
             </div>
           </div>

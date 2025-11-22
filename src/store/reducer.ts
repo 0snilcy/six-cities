@@ -8,11 +8,13 @@ import {
   loadAmsterdam,
   loadHamburg,
   loadDusseldorf,
+  loadOffers,
 } from './action';
 
 const initialState = {
   city: Cities.Paris,
-  cityOffers: offers,
+  offers: offers,
+  currentCityOffers: [],
 };
 
 export const reducer = createReducer(initialState, (builder) => {
@@ -34,5 +36,8 @@ export const reducer = createReducer(initialState, (builder) => {
     })
     .addCase(loadDusseldorf, (state) => {
       state.city = Cities.Dusseldorf;
+    })
+    .addCase(loadOffers, (state, action) => {
+      state.currentCityOffers = action.payload;
     });
 });

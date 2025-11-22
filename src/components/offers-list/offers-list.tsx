@@ -1,18 +1,18 @@
 import OfferCard from '../offer-card/offer-card';
-import OffersProps from '../../types/offers';
-import { useAppSelector } from '../../hooks';
+import { useAppSelector, useAppDispatch } from '../../hooks';
+import { loadOffers } from '../../store/action';
+import { useEffect } from 'react';
 
-export type OfferCardListProps = {
-  offers: OffersProps[];
-};
-
-function OffersList({ offers }: OfferCardListProps) {
+function OffersList() {
   const chosenCity = useAppSelector((state) => state.city);
-  const offersState = useAppSelector((state) => state.cityOffers);
-  const chosenOffers = offersState.filter((el) => el.city === chosenCity);
-  if (!offers) {
-    return <div></div>;
-  }
+  const allOffers = useAppSelector((state) => state.offers);
+  const chosenOffers = allOffers.filter((el) => el.city === chosenCity);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(loadOffers(chosenOffers));
+  }, [chosenCity, allOffers, dispatch]);
+
   return (
     <>
       {chosenOffers.map((el) => (
