@@ -1,20 +1,21 @@
 import { useAppDispatch } from '../../hooks';
-import { citiesListProps } from '../../types/citiesList';
-type citiesListProp = {
-  city: citiesListProps;
-};
-function CityItem({ city }: citiesListProp) {
-  const dispatch = useAppDispatch();
+import { loadCity } from '../../store/action';
 
+type CityListProp = {
+  city: string;
+};
+
+function CityItem({ city }: CityListProp) {
+  const dispatch = useAppDispatch();
   return (
     <li
       className="locations__item"
       onClick={() => {
-        dispatch(city.action());
+        dispatch(loadCity(city));
       }}
     >
       <a className="locations__item-link tabs__item" href="#">
-        <span>{city.city}</span>
+        <span>{city}</span>
       </a>
     </li>
   );
