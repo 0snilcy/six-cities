@@ -15,10 +15,6 @@ function Offer({ offers, reviews }: OfferProps) {
   if (!offer) {
     return <p>Объявление не найдено</p>;
   }
-  const review = reviews.find((item) => item.id === Number(id));
-  if (!review) {
-    return <p>Отзывов нет</p>;
-  }
   const filteredReviews = reviews.filter((item) => item.id === Number(id));
   const offersMap = offers.slice(0, 3);
   return (

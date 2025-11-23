@@ -1,12 +1,13 @@
 import OfferCard from '../offer-card/offer-card';
-import OffersProps from '../../types/offers';
-export type OfferCardListProps = {
-  offers: OffersProps[];
-};
-function OffersList({ offers }: OfferCardListProps) {
+import { useAppSelector } from '../../hooks';
+
+function OffersList() {
+  const chosenCity = useAppSelector((state) => state.city);
+  const allOffers = useAppSelector((state) => state.offers);
+  const chosenOffers = allOffers.filter((el) => el.city === chosenCity);
   return (
     <>
-      {offers.map((el) => (
+      {chosenOffers.map((el) => (
         <OfferCard key={el.id} offers={el} />
       ))}
     </>
