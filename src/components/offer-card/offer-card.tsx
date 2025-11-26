@@ -22,7 +22,7 @@ function OfferCard({ offers }: OfferCardProps) {
       <div className="place-card__info">
         <div className="place-card__price-wrapper">
           <div className="place-card__price">
-            <b className="place-card__price-value">{offers.price}</b>
+            <b className="place-card__price-value">{offers.price}$</b>
             <span className="place-card__price-text">/&nbsp;night</span>
           </div>
           <button
