@@ -1,17 +1,11 @@
 import OfferCard from '../offer-card/offer-card';
 import { useAppSelector } from '../../hooks';
-import { MouseEvent } from 'react';
 
 type OfferProps = {
   onListItemHover: (OfferId: number) => void;
 };
 
 function OffersList({ onListItemHover }: OfferProps) {
-  const handleListItemHover = (event: MouseEvent<HTMLLIElement>) => {
-    event.preventDefault();
-    onListItemHover(event.currentTarget);
-  };
-
   const chosenCity = useAppSelector((state) => state.city);
   const allOffers = useAppSelector((state) => state.offers);
   const chosenOffers = allOffers.filter((el) => el.city === chosenCity);
@@ -30,7 +24,7 @@ function OffersList({ onListItemHover }: OfferProps) {
   return (
     <>
       {chosenOffers.map((el) => (
-        <OfferCard key={el.id} offers={el} onMouseEnter={handleListItemHover} />
+        <OfferCard key={el.id} offers={el} onOfferEnter={onListItemHover} />
       ))}
     </>
   );

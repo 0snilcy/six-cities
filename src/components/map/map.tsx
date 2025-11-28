@@ -37,11 +37,9 @@ function Map({ offers, selectedPoint }: MapProps) {
           lat: el.lat,
           lng: el.lng,
         });
-
-        // marker.setIcon(currentCustomIcon).addTo(markerLayer);
         marker
           .setIcon(
-            selectedPoint !== undefined && el.name === selectedPoint.name
+            selectedPoint !== undefined && el.id === selectedPoint.id
               ? currentCustomIcon
               : defaultCustomIcon
           )

@@ -3,11 +3,16 @@ import OffersProps from '../../types/offers';
 import { Link } from 'react-router-dom';
 export type OfferCardProps = {
   offers: OffersProps;
+  onOfferEnter: (id: number) => void;
 };
 
-function OfferCard({ offers }: OfferCardProps) {
+function OfferCard({ offers, onOfferEnter }: OfferCardProps) {
   return (
-    <article className="cities__card place-card">
+    <article
+      className="cities__card place-card"
+      onMouseEnter={() => onOfferEnter(offers.id)}
+      onMouseLeave={() => onOfferEnter(-1)}
+    >
       <div className="cities__image-wrapper place-card__image-wrapper">
         <a href="#">
           <img
