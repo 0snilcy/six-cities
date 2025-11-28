@@ -1,6 +1,6 @@
 import OffersProps from '../../types/offers';
-
 import { Link } from 'react-router-dom';
+
 export type OfferCardProps = {
   offers: OffersProps;
   onOfferEnter: (id: number) => void;

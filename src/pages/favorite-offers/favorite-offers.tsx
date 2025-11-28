@@ -1,6 +1,11 @@
 import Favorites from '../../components/favorites/favorites';
-import { OfferCardListProps } from '../../components/offers-list/offers-list';
-function FavoriteOffers({ offers }: OfferCardListProps) {
+import OffersProps from '../../types/offers';
+
+export type FavoriteOffersProps = {
+  offers: OffersProps[];
+};
+
+function FavoriteOffers({ offers }: FavoriteOffersProps) {
   return (
     <div className="page">
       <header className="header">
