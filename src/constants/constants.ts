@@ -33,6 +33,30 @@ export const citiesList: CitiesListProps[] = [
   },
 ];
 
+export const sortOptions: sortOptionsProps[] = [
+  {
+    id: 1,
+    option: 'Popular',
+  },
+  {
+    id: 2,
+    option: 'Price: low to high',
+  },
+  {
+    id: 3,
+    option: 'Price: high to low',
+  },
+  {
+    id: 4,
+    option: 'Top rated first',
+  },
+];
+
+export type sortOptionsProps = {
+  id: number;
+  option: string;
+};
+
 export type CitiesListProps = {
   id: number;
   city: string;

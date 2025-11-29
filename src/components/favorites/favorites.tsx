@@ -1,5 +1,9 @@
-import { OfferCardProps } from '../offer-card/offer-card';
-function Favorites({ offers }: OfferCardProps) {
+import OffersProps from '../../types/offers';
+
+type FavoritesProp = {
+  offers: OffersProps;
+};
+function Favorites({ offers }: FavoritesProp) {
   return (
     <div className="favorites__places">
       <article className="favorites__card place-card">

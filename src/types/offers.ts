@@ -4,8 +4,8 @@ type OffersProps = {
   lat: number;
   lng: number;
   image: string;
-  price: string;
-  stars: string;
+  price: number;
+  stars: number;
   name: string;
   type: string;
   rooms: number;
