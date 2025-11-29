@@ -10,8 +10,16 @@ function OfferCard({ offers, onOfferEnter }: OfferCardProps) {
   return (
     <article
       className="cities__card place-card"
-      onMouseEnter={() => onOfferEnter?.(offers.id)}
-      onMouseLeave={() => () => onOfferEnter?.(-1)}
+      onMouseEnter={() => {
+        if (onOfferEnter) {
+          onOfferEnter(offers.id);
+        }
+      }}
+      onMouseLeave={() => {
+        if (onOfferEnter) {
+          onOfferEnter(-1);
+        }
+      }}
     >
       <div className="cities__image-wrapper place-card__image-wrapper">
         <a href="#">
