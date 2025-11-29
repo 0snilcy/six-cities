@@ -8,6 +8,7 @@ import NotFoundScreen from '../not-found-screen/not-found-screen';
 import PrivateRoute from '../private-route/private-route';
 import OffersProps from '../../types/offers';
 import ReviewsProps from '../../types/reviews';
+
 type AppPageProps = {
   offers: OffersProps[];
   reviews: ReviewsProps[];

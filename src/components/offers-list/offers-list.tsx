@@ -1,11 +1,10 @@
 import OfferCard from '../offer-card/offer-card';
 import { useAppSelector } from '../../hooks';
-
-type OfferProps = {
+type ListItemHoverProps = {
   onListItemHover: (OfferId: number) => void;
 };
 
-function OffersList({ onListItemHover }: OfferProps) {
+function OffersList({ onListItemHover }: ListItemHoverProps) {
   const chosenCity = useAppSelector((state) => state.city);
   const allOffers = useAppSelector((state) => state.offers);
   const chosenOffers = allOffers.filter((el) => el.city === chosenCity);

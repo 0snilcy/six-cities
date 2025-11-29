@@ -22,7 +22,7 @@ const defaultCustomIcon = new Icon({
 
 type MapProps = {
   offers: OffersProps[];
-  selectedPoint: OffersProps | undefined;
+  selectedPoint?: OffersProps | undefined;
 };
 
 function Map({ offers, selectedPoint }: MapProps) {
