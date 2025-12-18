@@ -1,4 +1,4 @@
-import OffersProps from '../../types/offers';
+import { OffersProps } from '../../types/offers';
 
 type FavoritesProp = {
   offers: OffersProps;
@@ -8,13 +8,13 @@ function Favorites({ offers }: FavoritesProp) {
     <div className="favorites__places">
       <article className="favorites__card place-card">
         <div className="place-card__mark">
-          <span>{offers.mark}</span>
+          <span>{}</span>
         </div>
         <div className="favorites__image-wrapper place-card__image-wrapper">
           <a href="#">
             <img
               className="place-card__image"
-              src={offers.image}
+              src={offers.previewImage}
               width={150}
               height={110}
               alt="Place image"
@@ -39,12 +39,12 @@ function Favorites({ offers }: FavoritesProp) {
           </div>
           <div className="place-card__rating rating">
             <div className="place-card__stars rating__stars">
-              <span style={{ width: offers.stars }} /> style=
+              <span style={{ width: offers.rating }} /> style=
               <span className="visually-hidden">Rating</span>
             </div>
           </div>
           <h2 className="place-card__name">
-            <a href="#">{offers.name}</a>
+            <a href="#">{offers.title}</a>
           </h2>
           <p className="place-card__type">{offers.type}</p>
         </div>

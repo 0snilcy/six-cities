@@ -6,6 +6,14 @@ export const Cities = {
   Hamburg: 'Hamburg',
   Dusseldorf: 'Dusseldorf',
 };
+
+export const cityMap = {
+  Paris: {
+    cityName: 'Paris',
+    lat: 48.85661,
+    lng: 2.351499,
+  },
+};
 export const citiesList: CitiesListProps[] = [
   {
     id: 1,
@@ -80,3 +88,7 @@ export const URL_MARKER_DEFAULT =
 
 export const URL_MARKER_CURRENT =
   'https://assets.htmlacademy.ru/content/intensive/javascript-1/demo/interactive-map/main-pin.svg';
+
+export enum APIRoute {
+  Offers = '/offers',
+}

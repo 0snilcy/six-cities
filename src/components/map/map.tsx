@@ -5,7 +5,7 @@ import {
   URL_MARKER_DEFAULT,
 } from '../../constants/constants';
 import 'leaflet/dist/leaflet.css';
-import OffersProps from '../../types/offers';
+import { OffersProps } from '../../types/offers';
 import useMap from '../../hooks/use-map';
 
 const currentCustomIcon = new Icon({
@@ -26,16 +26,16 @@ type MapProps = {
 };
 
 function Map({ offers, selectedPoint }: MapProps) {
-  const [city] = offers;
+  // const [city] = offers;
   const mapRef = useRef(null);
-  const map = useMap(mapRef, city);
+  const map = useMap(mapRef); //city
   useEffect(() => {
     if (map) {
       const markerLayer = layerGroup().addTo(map);
       offers.forEach((el) => {
         const marker = new Marker({
-          lat: el.lat,
-          lng: el.lng,
+          lat: el.location.latitude,
+          lng: el.location.longitude,
         });
         marker
           .setIcon(
