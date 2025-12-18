@@ -8,7 +8,7 @@ function Favorites({ offers }: FavoritesProp) {
     <div className="favorites__places">
       <article className="favorites__card place-card">
         <div className="place-card__mark">
-          <span>{offers.mark}</span>
+          <span>{}</span>
         </div>
         <div className="favorites__image-wrapper place-card__image-wrapper">
           <a href="#">
