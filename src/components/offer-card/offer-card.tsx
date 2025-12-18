@@ -1,23 +1,22 @@
-import OffersProps from '../../types/offers';
 import { Link } from 'react-router-dom';
-
+import { OffersProps } from '../../types/offers';
 export type OfferCardProps = {
-  offers: OffersProps;
-  onOfferEnter?: (id: number) => void;
+  offer: OffersProps;
+  onOfferEnter?: (id: string) => void;
 };
 
-function OfferCard({ offers, onOfferEnter }: OfferCardProps) {
+function OfferCard({ onOfferEnter, offer }: OfferCardProps) {
   return (
     <article
       className="cities__card place-card"
       onMouseEnter={() => {
         if (onOfferEnter) {
-          onOfferEnter(offers.id);
+          onOfferEnter(offer.id);
         }
       }}
       onMouseLeave={() => {
         if (onOfferEnter) {
-          onOfferEnter(-1);
+          onOfferEnter('');
         }
       }}
     >
@@ -25,7 +24,7 @@ function OfferCard({ offers, onOfferEnter }: OfferCardProps) {
         <a href="#">
           <img
             className="place-card__image"
-            src={offers.image}
+            src={offer.previewImage}
             width={260}
             height={200}
             alt="Place image"
@@ -35,7 +34,7 @@ function OfferCard({ offers, onOfferEnter }: OfferCardProps) {
       <div className="place-card__info">
         <div className="place-card__price-wrapper">
           <div className="place-card__price">
-            <b className="place-card__price-value">{offers.price}$</b>
+            <b className="place-card__price-value">{offer.price}$</b>
             <span className="place-card__price-text">/&nbsp;night</span>
           </div>
           <button
@@ -50,14 +49,14 @@ function OfferCard({ offers, onOfferEnter }: OfferCardProps) {
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
-            <span style={{ width: offers.stars }} />
+            <span style={{ width: `${offer.rating * 20}%` }}></span>
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
-        <Link to={`/offer/${offers.id}`}>
-          <h2 className="place-card__name">{offers.name}</h2>
+        <Link to={`/offer/${offer.id}`}>
+          <h2 className="place-card__name">{offer.title}</h2>
         </Link>
-        <p className="place-card__type">{offers.type}</p>
+        <p className="place-card__type">{offer.type}</p>
       </div>
     </article>
   );

@@ -4,20 +4,21 @@ import CitiesList from '../../components/cities-list/cities-list';
 import { useAppSelector } from '../../hooks';
 import { useState } from 'react';
 import { SortOptions } from '../../components/sort-options/sort-options';
-import offers from '../../mocks/offers';
-import OffersProps from '../../types/offers';
+import { OffersProps } from '../../types/offers';
 
 function MainPage(): JSX.Element {
   const [selectedPoint, setSelectedPoint] = useState<OffersProps | undefined>(
     undefined
   );
-  const handleListItemHover = (OfferId: number) => {
-    const currentPoint = offers.find((el) => el.id === OfferId);
+  const allOffers = useAppSelector((state) => state.offers);
+
+  const handleListItemHover = (OfferId: string) => {
+    const currentPoint = allOffers.find((el) => el.id === OfferId);
     setSelectedPoint(currentPoint);
   };
   const chosenCity = useAppSelector((state) => state.city);
-  const allOffers = useAppSelector((state) => state.offers);
-  const filteredOffers = allOffers.filter((el) => el.city === chosenCity);
+
+  const filteredOffers = allOffers.filter((el) => el.city.name === chosenCity);
   return (
     <div className="page page--gray page--main">
       <header className="header">

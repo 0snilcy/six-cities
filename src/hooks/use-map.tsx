@@ -1,19 +1,20 @@
 import { useEffect, useState, MutableRefObject, useRef } from 'react';
 import { Map, TileLayer } from 'leaflet';
-import OffersProps from '../types/offers';
-
+// import { OffersProps } from '../types/offers';
+import { cityMap } from '../constants/constants';
 function useMap(
-  mapRef: MutableRefObject<HTMLElement | null>,
-  offers: OffersProps
+  mapRef: MutableRefObject<HTMLElement | null>
+  // offers: OffersProps
 ): Map | null {
   const [map, setMap] = useState<Map | null>(null);
   const isRenderedRef = useRef<boolean>(false);
+
   useEffect(() => {
     if (mapRef.current !== null && !isRenderedRef.current) {
       const instance = new Map(mapRef.current, {
         center: {
-          lat: offers.lat,
-          lng: offers.lng,
+          lat: cityMap.Paris.lat,
+          lng: cityMap.Paris.lng,
         },
         zoom: 10,
       });
@@ -30,7 +31,7 @@ function useMap(
       setMap(instance);
       isRenderedRef.current = true;
     }
-  }, [mapRef, offers]);
+  }, [mapRef]);
 
   return map;
 }

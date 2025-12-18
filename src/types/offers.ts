@@ -1,21 +1,21 @@
-type OffersProps = {
-  id: number;
-  city: string;
-  lat: number;
-  lng: number;
-  image: string;
+export type OffersProps = {
+  id: string;
+  city: City;
+  location: Location;
+  previewImage: string;
   price: number;
-  stars: number;
-  name: string;
+  rating: number;
+  title: string;
   type: string;
-  rooms: number;
-  numberOfGuests: number;
-  facilities: string[];
-  hostPhoto: string;
-  hostName: string;
-  hostStatus: string;
-  description: string;
-  mark: string;
 };
 
-export default OffersProps;
+export type Location = {
+  latitude: number;
+  longitude: number;
+  zoom: number;
+};
+
+type City = {
+  name: string;
+  location: Location;
+};

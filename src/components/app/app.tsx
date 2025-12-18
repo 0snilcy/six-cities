@@ -6,15 +6,18 @@ import FavoriteOffers from '../../pages/favorite-offers/favorite-offers';
 import Offer from '../../pages/offer/offer';
 import NotFoundScreen from '../not-found-screen/not-found-screen';
 import PrivateRoute from '../private-route/private-route';
-import OffersProps from '../../types/offers';
-import ReviewsProps from '../../types/reviews';
+import { useAppSelector } from '../../hooks';
+import { reviews } from '../../mocks/reviews';
+import LoadingScreen from '../../pages/favorite-empty-offers/loading-screen/loading-screen';
+function App() {
+  const allOffers = useAppSelector((state) => state.offers);
+  const isOffersDataLoading = useAppSelector(
+    (state) => state.isOffersDataLoading
+  );
 
-type AppPageProps = {
-  offers: OffersProps[];
-  reviews: ReviewsProps[];
-};
-
-function App({ offers, reviews }: AppPageProps) {
+  if (isOffersDataLoading) {
+    return <LoadingScreen />;
+  }
   return (
     <BrowserRouter>
       <Routes>
@@ -24,14 +27,14 @@ function App({ offers, reviews }: AppPageProps) {
         <Route
           path={AppRoute.Favorites}
           element={
-            <PrivateRoute authorizationStatus={AuthorizationStatus.Auth}>
-              <FavoriteOffers offers={offers} />
+            <PrivateRoute authorizationStatus={AuthorizationStatus.NoAuth}>
+              <FavoriteOffers offers={allOffers} />
             </PrivateRoute>
           }
         />
         <Route
           path={AppRoute.Offer}
-          element={<Offer offers={offers} reviews={reviews} />}
+          element={<Offer offers={allOffers} reviews={reviews} />}
         />
         <Route path="*" element={<NotFoundScreen />} />
       </Routes>
