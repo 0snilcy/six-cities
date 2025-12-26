@@ -91,4 +91,7 @@ export const URL_MARKER_CURRENT =
 
 export enum APIRoute {
   Offers = '/offers',
+  Login = '/login',
+  Logout = '/logout',
 }
+export const TIMEOUT_SHOW_ERROR = 2000;

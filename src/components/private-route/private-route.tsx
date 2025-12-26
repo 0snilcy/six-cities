@@ -1,9 +1,11 @@
 import { AppRoute, AuthorizationStatus } from '../../constants/constants';
 import { Navigate } from 'react-router-dom';
+
 type PrivateRouteProps = {
   authorizationStatus: AuthorizationStatus;
   children: JSX.Element;
 };
+
 function PrivateRoute({
   authorizationStatus,
   children,

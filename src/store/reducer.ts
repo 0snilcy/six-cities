@@ -1,9 +1,14 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { Cities } from '../constants/constants';
-import { loadOffers, loadCity, sortOffers } from './action';
+import { Cities, AuthorizationStatus } from '../constants/constants';
+import {
+  loadOffers,
+  loadCity,
+  sortOffers,
+  setOffersLoadingStatus,
+  requireAuthorization,
+  setError,
+} from './action';
 import { OffersProps } from '../types/offers';
-import { setOffersLoadingStatus } from './action';
-import { AuthorizationStatus } from '../constants/constants';
 
 const initialState: StoreState = {
   city: Cities.Paris,
@@ -12,6 +17,7 @@ const initialState: StoreState = {
   currentCityOffers: [],
   authorizationStatus: AuthorizationStatus.Unknown,
   isOffersDataLoading: false,
+  error: null,
 };
 
 type StoreState = {
@@ -21,6 +27,7 @@ type StoreState = {
   currentCityOffers: OffersProps[];
   authorizationStatus: AuthorizationStatus;
   isOffersDataLoading: boolean;
+  error: string | null;
 };
 
 export const reducer = createReducer(initialState, (builder) => {
@@ -36,5 +43,11 @@ export const reducer = createReducer(initialState, (builder) => {
     })
     .addCase(setOffersLoadingStatus, (state, action) => {
       state.isOffersDataLoading = action.payload;
+    })
+    .addCase(requireAuthorization, (state, action) => {
+      state.authorizationStatus = action.payload;
+    })
+    .addCase(setError, (state, action) => {
+      state.error = action.payload;
     });
 });
