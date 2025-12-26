@@ -9,13 +9,19 @@ import PrivateRoute from '../private-route/private-route';
 import { useAppSelector } from '../../hooks';
 import { reviews } from '../../mocks/reviews';
 import LoadingScreen from '../../pages/favorite-empty-offers/loading-screen/loading-screen';
+
 function App() {
   const allOffers = useAppSelector((state) => state.offers);
   const isOffersDataLoading = useAppSelector(
     (state) => state.isOffersDataLoading
   );
-
-  if (isOffersDataLoading) {
+  const authorizationStatus = useAppSelector(
+    (state) => state.authorizationStatus
+  );
+  if (
+    authorizationStatus === AuthorizationStatus.Unknown ||
+    isOffersDataLoading
+  ) {
     return <LoadingScreen />;
   }
   return (
